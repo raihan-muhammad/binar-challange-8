@@ -31,7 +31,7 @@ function apply(app) {
   app.get("/", applicationController.handleGetRoot);
 
   app.get("/v1/cars", carController.handleListCars);
-  app.post("/v1/cars", authenticationController.authorize(accessControl.ADMIN), carController.handleCreateCar);
+  app.post("/v1/cars", authenticationController.authorize(accessControl.CUSTOMER), carController.handleCreateCar);
   app.post("/v1/cars/:id/rent", authenticationController.authorize(accessControl.CUSTOMER), carController.handleRentCar);
   app.get("/v1/cars/:id", carController.handleGetCar);
   app.put("/v1/cars/:id", authenticationController.authorize(accessControl.ADMIN), carController.handleUpdateCar);
